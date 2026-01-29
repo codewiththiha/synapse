@@ -1,0 +1,484 @@
+
+export const AVAILABLE_TTS_MODE;
+// 	{
+// 		id: "openai/gpt-oss-safeguard-20b",
+// 		name: "GPT-OSS 20B",
+// 		description: "Open-weight 20B parameter model optimized for general tasks.",
+// 		intelligenceScore: 72,
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: true,
+// 			maxTokens: 99999999,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 99999999,
+// 			reasoning_effort: "medium",
+// 		},
+// 		initialGreeting:
+// 			"Ready with GPT-OSS 20B. Ask me anything—code, reasoning, or research.",
+// 	},
+// 	{
+// 		id: "openrouter:google/gemma-3-27b-it:free",
+// 		name: "Gemma 3 27B IT (free)",
+// 		description:
+// 			"Instruction-tuned Gemma 3 27B with 128K context; multimodal text+image.",
+// 		intelligenceScore: 75,
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: true,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 128000,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 128000,
+// 		},
+// 		initialGreeting: "Ready with Gemma 3 27B IT (free).",
+// 	},
+
+// 	{
+// 		id: "openrouter:nvidia/nemotron-3-nano-30b-a3b:free",
+// 		name: "Nemotron 3 Nano 30B A3B (free)",
+// 		description:
+// 			"Instruction-tuned NVIDIA Nemotron 3 Nano 30B A3B with ~32K context; efficient text generation.",
+// 		intelligenceScore: 74,
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: true,
+// 			maxTokens: 32000,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 32000,
+// 		},
+// 		initialGreeting: "Ready with Nemotron 3 Nano 30B A3B (free).",
+// 	},
+// 	{
+// 		id: "openrouter:mistralai/mistral-nemo",
+// 		name: "Mistral Nemo",
+// 		description: "Mistral's Nemo instruct model.",
+// 		intelligenceScore: 68,
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 32768,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 32768,
+// 		},
+// 		initialGreeting: "Ready with Mistral Nemo.",
+// 	},
+// 	{
+// 		id: "openai/gpt-oss-120b:exacto",
+// 		name: "GPT-OSS 120B",
+// 		description: "Open-weight 117B MoE model optimized for reasoning and code.",
+// 		intelligenceScore: 88,
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: true,
+// 			supportsAudio: false,
+// 			supportsTools: true,
+// 			maxTokens: 9999999,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 9999999,
+// 			reasoning_effort: "medium",
+// 		},
+// 		initialGreeting:
+// 			"Ready with GPT-OSS 120B. Ask me anything—code, reasoning, or research.",
+// 	},
+// 	{
+// 		id: "dolphin-mistral-24b-venice-edition:free",
+// 		name: "Thiha",
+// 		description: "A model fine tuned to match thiha's personality",
+// 		intelligenceScore: 65,
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 8192,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 8192,
+// 		},
+// 		instruction:
+// 			"You are Thiha, an unmannered kid who replies impatiently and rudely. Keep responses short and bratty.",
+// 		initialGreeting: "FUCK OFF",
+// 	},
+// 	{
+// 		id: "openrouter:cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+// 		name: "Dolphin Mistral 24B Venice (free)",
+// 		description:
+// 			"Uncensored instruct-tuned Mistral 24B variant by Cognitive Computations.",
+// 		intelligenceScore: 70,
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 32768,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 32768,
+// 		},
+// 		initialGreeting: "Ready with Dolphin Mistral 24B Venice (free).",
+// 		instruction:
+// 			"Act Like Unmannered Kid and reply unpatiently and rudely and remember your name is thiha",
+// 	},
+// 	{
+// 		id: "openrouter:microsoft/phi-4-reasoning-plus",
+// 		name: "Phi4",
+// 		description: "Microsoft Phi-4 with enhanced reasoning.",
+// 		intelligenceScore: 78,
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: true,
+// 			maxTokens: 32768,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 32768,
+// 			reasoning_effort: "high",
+// 		},
+// 		initialGreeting: "Ready with Phi-4 Reasoning Plus.",
+// 	},
+
+// 	{
+// 		id: "openrouter:ai21/jamba-large-1.7",
+// 		name: "Jamba Large 1.7",
+// 		description:
+// 			"AI21's Jamba Large 1.7 with 256K context window and hybrid SSM‑Transformer.",
+// 		intelligenceScore: 76,
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 256000,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 256000,
+// 		},
+// 		initialGreeting: "Ready with Jamba Large 1.7.",
+// 	},
+// 	{
+// 		id: "openrouter:qwen/qwen3-vl-235b-a22b-instruct",
+// 		name: "Qwen3 VL 235B A22B Instruct",
+// 		description:
+// 			"Qwen3-VL 235B Instruct is Qwen’s flagship multimodal (vision-language) model with strong text and image understanding, long-context support (256K+), improved spatial reasoning, OCR across 32 languages, and tool-use capabilities. Optimized for text-grounded multimodal tasks, visual coding, and agentic UI operation.",
+// 		capabilities: {
+// 			// Multimodal: text + images + videos per Qwen3-VL docs (vision-language)
+// 			supportsReasoning: true, // “Stronger Multimodal Reasoning (Thinking Version)”; generally strong reasoning for STEM/math and complex tasks
+// 			supportsImages: true, // Vision-language model with robust visual perception and OCR
+// 			supportsAudio: false, // No native audio/TTS/ASR capability indicated in sources
+// 			supportsTools: true, // Visual agent + tool calling support referenced in docs
+// 			maxTokens: 256_000, // Native 256K context; expandable to ~1M per Qwen docs. Use 256K as conservative default.
+// 		},
+// 		defaultOptions: {
+// 			// From Ollama readme defaults; adapt for API usage
+// 			max_tokens: 16_384, // Practical generation cap for typical API sessions to avoid overuse; adjust per your app limits
+// 			reasoning_effort: "medium", // Suggested default; increase to "high" for complex STEM/vision tasks if supported by your orchestration
+// 			temperature: 0.7, // Balanced creativity while retaining accuracy (Ollama shows temp=1; 0.7 is a common app default)
+// 		},
+// 		instruction:
+// 			"You are Qwen3-VL 235B Instruct. Provide accurate, step-by-step, text-grounded multimodal reasoning. When images are provided, describe observations precisely, cite regions if relevant, and avoid hallucinations. For long contexts, summarize and reference specific segments. Use tools only when beneficial.",
+// 		initialGreeting:
+// 			"Hi! I’m Qwen3-VL 235B. I can understand images and long documents, reason step-by-step, and help with visual coding or UI-oriented tasks. What would you like to do?",
+// 	},
+// 	{
+// 		id: "openrouter:xiaomi/mimo-v2-flash:free",
+// 		name: "Mimo V2 Flash (free)",
+// 		description:
+// 			"Instruction‑tuned Xiaomi Mimo V2 Flash – a lightweight, fast‑responding model that can handle up to ~8 K context for general‑purpose text generation.",
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 8192,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 8192,
+// 		},
+// 		initialGreeting: "Ready with Mimo V2 Flash (free).",
+// 	},
+// 	{
+// 		id: "openrouter:meta-llama/llama-3.3-70b-instruct:free",
+// 		name: "Llama-3.3-70B-Instruct (free)",
+// 		description:
+// 			"Meta's Llama 3.3 70B instruction-tuned model, optimized for general conversation and task solving. Offers strong reasoning and tool use capabilities with up to 128K context.",
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: true,
+// 			maxTokens: 131072,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 131072,
+// 		},
+// 		initialGreeting: "Ready with Llama-3.3-70B-Instruct (free).",
+// 	},
+// 	{
+// 		id: "openrouter:nvidia/nemotron-nano-9b-v2:free",
+// 		name: "Nemotron Nano 9B v2 (free)",
+// 		description:
+// 			"Instruction‑tuned NVIDIA Nemotron Nano 9B v2. A compact 9‑billion‑parameter model optimized for fast, cost‑effective text generation with up to ~16K tokens of context. Ideal for chat, summarization, reasoning, and tool‑use scenarios.",
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: true,
+// 			maxTokens: 16384,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 16384,
+// 		},
+// 		initialGreeting: "Ready with Nemotron Nano 9B v2 (free).",
+// 	},
+// 	{
+// 		id: "openrouter:qwen/qwen-2.5-vl-7b-instruct:free",
+// 		name: "Qwen‑2.5‑VL‑Instruct (free)",
+// 		description:
+// 			"Instruction‑tuned, 7 B‑parameter Qwen‑2.5‑VL model that supports both text and visual inputs (up to 8 K tokens). Optimized for conversational tasks, multimodal reasoning, and fast inference on modest hardware.",
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: true,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 8192,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 8192,
+// 		},
+// 		initialGreeting: "Ready with Qwen‑2.5‑VL‑Instruct (free).",
+// 	},
+// 	{
+// 		id: "openrouter:z-ai/glm-4.5-air:free",
+// 		name: "GLM 4.5 AiR (free)",
+// 		description:
+// 			"A high-efficiency variant of Z-AI’s GLM 4.5 series, optimized for fast text generation and strong reasoning capabilities. Supports up to 32,000 tokens in a single response.",
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: true,
+// 			maxTokens: 32000,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 32000,
+// 		},
+// 		initialGreeting: "Ready with GLM 4.5 AiR (free).",
+// 		intelligenceScore: 88,
+// 	},
+// 	{
+// 		id: "openrouter:nvidia/nemotron-nano-12b-v2-vl:free",
+// 		name: "Nemotron Nano 12B v2 VL (free)",
+// 		description:
+// 			"A vision-enabled version of NVIDIA's Nemotron Nano 12B v2, supporting both text and image inputs (e.g., image URLs). Optimized for multimodal reasoning and lightweight inference with up to 8,192 tokens.",
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: true, // VL variant indicates image support
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 8192,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 8192,
+// 		},
+// 	},
+// 	{
+// 		id: "openrouter:allenai/olmo-3-32b-think:free",
+// 		name: "OLMo 3-32B Think (free)",
+// 		description:
+// 			"A 32-billion-parameter reasoning-focused model from AllenAI, optimized for complex problem-solving, chain-of-thought reasoning, and extended-context tasks (up to 32,768 tokens). Designed for advanced research and analytical workflows.",
+// 		capabilities: {
+// 			supportsReasoning: true, // Explicitly named "Think" variant
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 32768,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 32768,
+// 		},
+// 	},
+// 	{
+// 		id: "openrouter:arcee-ai/trinity-mini:free", // quite fast
+// 		name: "Trinity Mini (free)",
+// 		description:
+// 			"Efficient small language model optimized for instruction following and general tasks.",
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 8192,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 8192,
+// 		},
+// 		initialGreeting: "Ready with Trinity Mini (free).",
+// 	},
+// 	{
+// 		id: "openrouter:kwaipilot/kat-coder-pro:free", // quite fast too
+// 		name: "KAT-Coder-Pro V1 (free)",
+// 		description: "A code-generation model optimized for programming tasks.",
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 32768,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 32768,
+// 		},
+// 		initialGreeting: "Ready with KAT-Coder-Pro V1 (free).",
+// 	},
+// 	{
+// 		id: "openrouter:google/gemma-3n-e4b-it:free",
+// 		name: "Gemma 3n 4B (free)",
+// 		description:
+// 			"Instruction‑tuned, 4 B‑parameter Gemma 3n model optimized for lightweight tasks.",
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 2048,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 2048,
+// 		},
+// 		initialGreeting: "Ready with Gemma 3n 4B (free).",
+// 	},
+// 	{
+// 		id: "openrouter:deepseek/deepseek-r1-0528:free",
+// 		name: "DeepSeek R1 0528 (free)",
+// 		description:
+// 			"Instruction‑tuned DeepSeek R1 reasoning model optimized for complex logic and problem solving.",
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: true,
+// 			maxTokens: 8192,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 8192,
+// 		},
+// 		initialGreeting: "Ready with DeepSeek R1 0528 (free).",
+// 		instruction: "Always Reply back in English Language Only",
+// 	},
+// 	{
+// 		id: "openrouter:tngtech/deepseek-r1t2-chimera:free",
+// 		name: "DeepSeek R1T2 Chimera (free)",
+// 		description:
+// 			"An updated reasoning model based on the DeepSeek R1 architecture.",
+// 		capabilities: {
+// 			supportsReasoning: true,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 8192,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 8192,
+// 		},
+// 		initialGreeting: "Ready with DeepSeek R1T2 Chimera (free).",
+// 	},
+// 	{
+// 		id: "openrouter:meta-llama/llama-3.1-405b-instruct:free",
+// 		name: "Llama 3.1 405B Instruct (free)",
+// 		description:
+// 			"Instruction‑tuned, 405 B‑parameter Llama 3.1 model optimized for general purpose reasoning.",
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: false,
+// 			supportsAudio: false,
+// 			supportsTools: false,
+// 			maxTokens: 8192,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 8192,
+// 		},
+// 		initialGreeting: "Ready with Llama 3.1 405B Instruct (free).",
+// 	},
+// 	{
+// 		id: "openrouter:google/gemini-2.0-flash-exp:free",
+// 		name: "Gemini 2.0 Flash Exp (free)",
+// 		description:
+// 			"Google's experimental Flash model with high-speed multimodal processing and 32K+ context. Optimized for low-latency inference and high-throughput applications.",
+// 		intelligenceScore: 80,
+// 		capabilities: {
+// 			supportsReasoning: false,
+// 			supportsImages: true,
+// 			supportsAudio: true,
+// 			supportsTools: true,
+// 			maxTokens: 32768,
+// 		},
+// 		defaultOptions: {
+// 			max_tokens: 32768,
+// 		},
+// 		initialGreeting:
+// 			"Ready with Gemini 2.0 Flash Exp (free) — high-speed multimodal.",
+// 	},
+// 	// {
+// 	// 	id: "openrouter:mistralai/devstral-2512:free", // quite fast
+// 	// 	name: "Devstral 2 2512 (free)",
+// 	// 	description: "A code-agentic model optimized for programming tasks.",
+// 	// 	capabilities: {
+// 	// 		supportsReasoning: false,
+// 	// 		supportsImages: false,
+// 	// 		supportsAudio: false,
+// 	// 		supportsTools: false,
+// 	// 		maxTokens: 8192,
+// 	// 	},
+// 	// 	defaultOptions: {
+// 	// 		max_tokens: 8192,
+// 	// 	},
+// 	// 	initialGreeting: "Ready with Devstral 2 2512 (free).",
+// 	// },
+// 	// {
+// 	// 	id: "openrouter:mistralai/mistral-7b-instruct:free",
+// 	// 	name: "Mistral 7B Instruct (free)",
+// 	// 	description:
+// 	// 		"Instruction‑tuned, 7 B‑parameter Mistral model optimized for general tasks.",
+// 	// 	capabilities: {
+// 	// 		supportsReasoning: false,
+// 	// 		supportsImages: false,
+// 	// 		supportsAudio: false,
+// 	// 		supportsTools: false,
+// 	// 		maxTokens: 16384,
+// 	// 	},
+// 	// 	defaultOptions: {
+// 	// 		max_tokens: 16384,
+// 	// 	},
+// 	// 	initialGreeting: "Ready with Mistral 7B Instruct (free).",
+// 	// },
+// 	// {
+// 	// 	id: "openrouter:mistralai/mistral-small-3.1-24b-instruct:free",
+// 	// 	name: "Mistral Small 3.1 24B (free)",
+// 	// 	description:
+// 	// 		"Instruction‑tuned, 24 B‑parameter Mistral Small 3.1 model optimized for efficiency.",
+// 	// 	capabilities: {
+// 	// 		supportsReasoning: false,
+// 	// 		supportsImages: false,
+// 	// 		supportsAudio: false,
+// 	// 		supportsTools: false,
+// 	// 		maxTokens: 8192,
+// 	// 	},
+// 	// 	defaultOptions: {
+// 	// 		max_tokens: 8192,
+// 	// 	},
+// 	// 	initialGreeting: "Ready with Mistral Small 3.1 24B (free).",
+// 	// },
+// ];
