@@ -1,6 +1,3 @@
----
-
-```markdown
 # Synapse - Intelligent Productivity Suite
 
 A comprehensive AI-powered productivity application built with Next.js 16, TypeScript, and Puter.js. Combines multi-model chat, intelligent flashcards, and advanced planning tools into one seamless experience.
@@ -200,6 +197,4 @@ Built with:
 
 **Made with ❤️ using Next.js and Puter.js**
 ```
-
----
 
