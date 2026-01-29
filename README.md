@@ -52,7 +52,7 @@ A comprehensive AI-powered productivity application built with Next.js 16, TypeS
 ```bash
 # Clone the repository
 git clone https://github.com/codewiththiha/synapse.git
-cd puter-gui
+cd synapse
 
 # Install dependencies
 npm install
