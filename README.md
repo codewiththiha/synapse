@@ -196,5 +196,3 @@ Built with:
 ---
 
 **Made with ❤️ using Next.js and Puter.js**
-```
-
